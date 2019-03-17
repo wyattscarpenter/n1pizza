@@ -8,7 +8,7 @@ Notable:
 
   * I can't guarantee that these metric are correct, but, for reference, the official tumblr theme is about 100KB (as are most themes?) and popular minimalist theme Observer, which I previously used, is about 40KB. Tumblr's "default mobile theme" that happens when you visit a blog on a phone and the blog owner hasn't opted out of this options, seems to be 200KB, for some reason? That's weird. tumblr's /mobile option is about 20KB, but due to its lack of borders it's pretty much unusable (illegible).
 
-* has no javascript or css in it, therefore it is quick and efficient. I think in generating the page from the theme tumblr adds some javascript in... sorry, nothing I can do.
+* has no javascript or css in it, therefore it is quick and efficient. I think in generating the page from the theme tumblr adds some javascript and css in... sorry, nothing I can do.
 
 * because of the above two and half points, this theme should be a breeze and a joy to use, and be faster than most other themes. How much faster? Hard to say. I did not measure.
 
