@@ -21,3 +21,5 @@ Notable:
 * Despite tumblr's goading, I did not try to facilitate any sort of customizations options into this theme. Please use the "custom css" option (which I did enable) or edit the html directly. In fact, I release this project into the public domain so that you may do with your modified copies what you wish!
 
 * tumblr insists I upload all screenshots as strictly 630x450, as though that were a screen resolution anyone uses, so I've only provided them one due to the amount of hassle. Also, the thumbnail is required to be precisely 375x250, as though that was thumbnail size. Weird.
+
+* this project is hosted on github at https://github.com/wyattscarpenter/n1pizza, but I did not link my github to tumblr because they want read/write access to all of my repos (public AND private) which is not something to give lightly.
