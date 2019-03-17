@@ -19,3 +19,5 @@ Notable:
 * I did not particularly try to facilitate group blogs with this theme, because I have no experience with them. If you run a group blog, and you think something you need is missing from this theme, drop me a line!
 
 * Despite tumblr's goading, I did not try to facilitate any sort of customizations options into this theme. Please use the "custom css" option (which I did enable) or edit the html directly. In fact, I release this project into the public domain so that you may do with your modified copies what you wish!
+
+* tumblr insists I upload all screenshots as strictly 630x450, as though that were a screen resolution anyone uses, so I've only provided them one due to the amount of hassle. Also, the thumbnail is required to be precisely 375x250, as though that was thumbnail size. Weird.
