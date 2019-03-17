@@ -13,6 +13,11 @@
         {block:Description}
             <p id="description">{Description}</p>
         {/block:Description}
+	<p id="header">
+	    <a href="/archive">Archive</a>
+	    {block:AskEnabled}<a href="/submit">{AskLabel}</a>{/block:AskEnabled}
+	    {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+	</p>
         <div id="posts">
             {block:Posts}{block:Text}
                     <div class="post text">
@@ -87,12 +92,9 @@
                 {/block:Audio}{/block:Posts}
         </div>
         <p id="footer">
-            {block:PreviousPage}
-                <a href="{PreviousPage}">&#171; Previous</a>
-            {/block:PreviousPage}{block:NextPage}
-                <a href="{NextPage}">Next &#187;</a>
-            {/block:NextPage}
-            <a href="/archive">Archive</a>
+            {block:PreviousPage}<a href="{PreviousPage}">&#171; Previous</a>{/block:PreviousPage}
+	    {block:Pagination}{CurrentPage}/{TotalPages}{/block:Pagination}
+	    {block:NextPage}<a href="{NextPage}">Next &#187;</a>{/block:NextPage}
         </p>
     </body>
 </html>
