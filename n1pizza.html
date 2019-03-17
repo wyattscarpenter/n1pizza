@@ -1,126 +1,109 @@
 <html>
-    <head>
-        <title>{Title}</title>
-        <link rel="shortcut icon" href="{Favicon}">
-        <link rel="alternate" type="application/rss+xml" href="{RSS}">
-        {block:Description}
-            <meta name="description" content="{MetaDescription}" />
-        {/block:Description}
-        <style>.post{border: 1px solid black;}{CustomCSS}</style>
-    </head>
-    <body>
-        <a href="{BlogURL}"><h1>{Title}</h1></a>
-        <p id="description">{Description}</p>
-	<p id="header">
-	    <a href="/archive">Archive</a> 
-	    {block:AskEnabled}<a href="/submit">{AskLabel}</a>{/block:AskEnabled} 
-	    {block:SubmissionsEnabled}<a href="/ask">{SubmitLabel}</a>{/block:SubmissionsEnabled} 
-	    {block:Pages}<a href="{URL}">{Label}</a> {{/block:Pages}
-	    <a href="{RSS}">RSS</a>
-	</p>
-	 {block:DayPage}<h2>{Month} {DayOfMonth}, {Year}</h2>{/block:DayPage}
-        <div id="posts">
-            {block:Posts}
-	    <div class="post">
-	    <div class="postheader">{block:Submission}Submission by <a href="{SubmitterURL}">{Submitter}</a>:{/block:Submission}</div>
-	    {block:Text}
-                    <div class="text">
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}{Body}
-                    </div>
-                {/block:Text}{block:Photo}
-                    <div class="photo">
-                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </div>
-                {/block:Photo}{block:Panorama}
-                    <div class="panorama">
-                        {LinkOpenTag}
-                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                        {LinkCloseTag}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </div>
-                {/block:Panorama}{block:Photoset}
-                    <div class="photoset">
-                        {block:Photos}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/><br>{/block:Photos}
-			{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
-                    </div>
-                {/block:Photoset}{block:Quote}
-                    <div class="quote">
-                        "{Quote}"
-                        {block:Source}
-                           <div class="source"> --{Source}</div>
-                        {/block:Source}
-                    </div>
-                {/block:Quote}{block:Link}
-                    <div class="link">
-                        <a href="{URL}" class="link" {Target}>{Name}</a>
-                        {block:Description}
-                            <div class="description">{Description}</div>
-                        {/block:Description}
-                    </div>
-                {/block:Link}{block:Chat}
-                    <div class="chat">
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}
-                        <ul class="chat">
-                            {block:Lines}
-                                <li class="{Alt} user_{UserNumber}">
-                                    {block:Label}
-                                        <span class="label">{Label}</span>
-                                    {/block:Label}{Line}
-                                </li>
-                            {/block:Lines}
-                        </ul>
-                    </div>
-                {/block:Chat}{block:Video}
-                    <div class="video">
-                        {Video-500}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </div>
-                {/block:Video}{block:Audio}
-                    <div class="audio">
-                        {AudioEmbed}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </div>
-                {/block:Audio}
-		<div>
-		    <div style="float: left;">{ReblogButton}</div><div style="float: left;">{LikeButton}</div>
-		    <a href="{Permalink}">{ShortDayOfWeek}, {DayOfMonth} {ShortMonth} {Year} {24HourWithZero}:{Minutes}:{Seconds}</a>
-		    {NoteCountWithLabel}
-		    {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
-		    {block:ContentSource}Source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
-		    {block:RebloggedFrom}Original tumblr post by <a href="{ReblogRootURL}">{ReblogRootName}</a>, reblogged here from <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
-		</div>
-		</div>
-		{/block:Posts}
+  <head>
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <style>.post{border: 1px solid black; margin: 1px;}{CustomCSS}</style>
+  </head>
+  <body>
+    <a href="{BlogURL}"><h1>{Title}</h1></a>
+    <p id="description">{Description}</p>
+    <p id="header">
+      <a href="/archive">Archive</a> 
+      {block:AskEnabled}<a href="/submit">{AskLabel}</a>{/block:AskEnabled} 
+      {block:SubmissionsEnabled}<a href="/ask">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+      {block:Likes}<a href="/likes">Likes</a>{/block:Likes} 
+      {block:Pages}<a href="{URL}">{Label}</a> {{/block:Pages}
+      <a href="{RSS}">RSS</a>
+    </p>
+    {block:DayPage}<h2>{DayOfMonth} {Month} {Year}</h2>{/block:DayPage}
+    <div id="posts">
+      {block:Posts}
+      <div class="post">
+	<div class="postheader">
+	  {block:Submission}Submission by <a href="{SubmitterURL}">{Submitter}</a>:{/block:Submission}
+	</div>
+	{block:Text}
+        <div class="text">
+          {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+	  {Body}
         </div>
-        <p id="footer">
-            {block:PreviousPage}<a href="{PreviousPage}">&#171; Previous</a>{/block:PreviousPage}
-	    {block:Pagination}{CurrentPage}/{TotalPages}{/block:Pagination}
-	    {block:NextPage}<a href="{NextPage}">Next &#187;</a>{/block:NextPage}
-	    {block:PermalinkPagination} 
-		{block:PreviousPost}<a href="{PreviousPost}">Previous Post</a>{/block:PreviousPost}
-		{CurrentPage}/{TotalPages}
-		{block:NextPost}<a href="{NextPost}">Next Post</a>{/block:NextPost} 
-	    {/block:PermalinkPagination}
-	                    {/block:NextPage}{/block:Pagination}{block:DayPagination}{block:PreviousDayPage}
-                    <a href="{PreviousDayPage}">
-                        &#171; {ShortMonth} {DayOfMonth}
-                    </a>
-                {/block:PreviousDayPage}{block:NextDayPage}
-                    <a href="{NextDayPage}">
-                        {ShortMonth} {DayOfMonth} &#187;
-                    </a>
-                {/block:NextDayPage}{/block:DayPagination}
-	    {CopyrightYears}
-        </p>
-    </body>
+        {/block:Text}
+	{block:Photo}
+        <div class="photo">
+          <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+          {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Photo}
+	{block:Photoset}
+        <div class="photoset">
+          {block:Photos}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/><br>{/block:Photos}
+	  {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Photoset}
+	{block:Quote}
+        <div class="quote">
+          "{Quote}"
+          {block:Source}<div class="source"> --{Source}</div>{/block:Source}
+        </div>
+        {/block:Quote}
+	{block:Link}
+        <div class="link">
+          <a href="{URL}" class="link" {Target}>{Name}</a>
+          {block:Description}<div class="description">{Description}</div>{/block:Description}
+        </div>
+        {/block:Link}
+	{block:Chat}
+        <div class="chat">
+          {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+	  <div style="font-family: monospace;">
+            {block:Lines}
+            <span class="{Alt} user_{UserNumber}">
+              {block:Label}<span class="label">{Label}</span> {/block:Label}{Line}<br>
+            </span>
+            {/block:Lines}
+          </div>
+        </div>
+        {/block:Chat}
+	{block:Video}
+        <div class="video">
+          {Video}<!-- can't figure out the diff between this and VideoEmbed, if there is a diff -->
+	  {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Video}
+	{block:Audio}
+        <div class="audio">
+          {AudioEmbed}
+	  {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Audio}
+	<div class="postfooter">
+	  <div style="float: left;">{ReblogButton}</div><div style="float: left;">{LikeButton}</div>
+	  <a href="{Permalink}">{ShortDayOfWeek}, {DayOfMonth} {ShortMonth} {Year} {24HourWithZero}:{Minutes}:{Seconds}</a>
+	  <a href="{Permalink}">{NoteCountWithLabel}</a>
+	  {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+	  {block:ContentSource}Source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
+	  {block:RebloggedFrom}Original tumblr post by <a href="{ReblogRootURL}">{ReblogRootName}</a>, reblogged here from <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
+	</div>
+      </div>
+      {/block:Posts}
+    </div>
+    <p id="footer">
+      {block:Pagination}
+        {block:PreviousPage}<a href="{PreviousPage}">&lt; Previous</a>{/block:PreviousPage}
+        {CurrentPage}/{TotalPages}
+        {block:NextPage}<a href="{NextPage}">Next &gt;</a>{/block:NextPage}
+      {/block:Pagination}
+      {block:PermalinkPagination} 
+        {block:PreviousPost}<a href="{PreviousPost}">&lt; Previous Post</a>{/block:PreviousPost}
+        {block:NextPost}<a href="{NextPost}">Next Post &gt;</a>{/block:NextPost} 
+      {/block:PermalinkPagination}
+      {block:DayPagination}
+        {block:PreviousDayPage}<a href="{PreviousDayPage}"> &lt; {ShortMonth} {DayOfMonth}</a>{/block:PreviousDayPage}
+        {block:NextDayPage}<a href="{NextDayPage}"> {ShortMonth} {DayOfMonth} &gt;</a>{/block:NextDayPage}
+      {/block:DayPagination}
+      <br>{CopyrightYears}
+    </p>
+  </body>
 </html>
