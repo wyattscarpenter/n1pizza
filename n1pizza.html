@@ -6,35 +6,38 @@
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
         {/block:Description}
-        <style>.post{border: 1px solid black;}</style>
+        <style>.post{border: 1px solid black;}{CustomCSS}</style>
     </head>
     <body>
-        <h1>{Title}</h1>
-        {block:Description}
-            <p id="description">{Description}</p>
-        {/block:Description}
+        <a href="{BlogURL}"><h1>{Title}</h1></a>
+        <p id="description">{Description}</p>
 	<p id="header">
 	    <a href="/archive">Archive</a>
 	    {block:AskEnabled}<a href="/submit">{AskLabel}</a>{/block:AskEnabled}
-	    {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+	    {block:SubmissionsEnabled}<a href="/ask">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+	    {block:Pages}<a href="{URL}">{Label}</a>{{/block:Pages}
+	    <a href="{RSS}">RSS</a>
 	</p>
+	 {block:DayPage}<h2>{Month} {DayOfMonth}, {Year}</h2>{/block:DayPage}
         <div id="posts">
-            {block:Posts}{block:Text}
-                    <div class="post text">
+            {block:Posts}
+	    <div class="post">
+	    <p class="postheader">{block:Submission}Submission by <a href="{SubmitterURL}">{Submitter}</a>:{/block:Submission}</p>
+	    {block:Text}
+                    <div class="text">
                         {block:Title}
                             <h3><a href="{Permalink}">{Title}</a></h3>
                         {/block:Title}{Body}
                     </div>
                 {/block:Text}{block:Photo}
-                    <div class="post photo">
+                    <div class="photo">
                         <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-
                         {block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </div>
                 {/block:Photo}{block:Panorama}
-                    <div class="post panorama">
+                    <div class="panorama">
                         {LinkOpenTag}
                             <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
                         {LinkCloseTag}{block:Caption}
@@ -42,28 +45,27 @@
                         {/block:Caption}
                     </div>
                 {/block:Panorama}{block:Photoset}
-                    <div class="post photoset">
+                    <div class="photoset">
                         {Photoset-500}{block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </div>
                 {/block:Photoset}{block:Quote}
-                    <div class="post quote">
+                    <div class="quote">
                         "{Quote}"
-
                         {block:Source}
                             <div class="source">{Source}</div>
                         {/block:Source}
                     </div>
                 {/block:Quote}{block:Link}
-                    <div class="post link">
+                    <div class="link">
                         <a href="{URL}" class="link" {Target}>{Name}</a>
                         {block:Description}
                             <div class="description">{Description}</div>
                         {/block:Description}
                     </div>
                 {/block:Link}{block:Chat}
-                    <div class="post chat">
+                    <div class="chat">
                         {block:Title}
                             <h3><a href="{Permalink}">{Title}</a></h3>
                         {/block:Title}
@@ -78,23 +80,49 @@
                         </ul>
                     </div>
                 {/block:Chat}{block:Video}
-                    <div class="post video">
+                    <div class="video">
                         {Video-500}{block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </div>
                 {/block:Video}{block:Audio}
-                    <div class="post audio">
+                    <div class="audio">
                         {AudioEmbed}{block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}
                     </div>
-                {/block:Audio}{/block:Posts}
+                {/block:Audio}
+		<p class="postfooter">
+		    {ReblogButton}
+		    {LikeButton}
+		    <a href="{Permalink}">{ShortDayOfWeek}, {DayOfMonth} {ShortMonth} {Year} {24HourWithZero}:{Minutes}:{Seconds}</a>
+		    {NoteCountWithLabel}
+		    {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+		    {block:ContentSource}Source: <a href="{BlackLogoURL}">{SourceTitle}</a>{/block:ContentSource}
+		    {block:RebloggedFrom}Original tumblr post by <a href="{ReblogRootURL}">{ReblogRootName}</a>, reblogged here from <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
+		</p>
+		</div>
+		{/block:Posts}
         </div>
         <p id="footer">
             {block:PreviousPage}<a href="{PreviousPage}">&#171; Previous</a>{/block:PreviousPage}
 	    {block:Pagination}{CurrentPage}/{TotalPages}{/block:Pagination}
 	    {block:NextPage}<a href="{NextPage}">Next &#187;</a>{/block:NextPage}
+	    {block:PermalinkPagination} 
+		{block:PreviousPost}<a href="{PreviousPost}">Previous Post</a>{/block:PreviousPost}
+		{CurrentPage}/{TotalPages}
+		{block:NextPost}<a href="{NextPost}">Next Post</a>{/block:NextPost} 
+	    {/block:PermalinkPagination}
+	                    {/block:NextPage}{/block:Pagination}{block:DayPagination}{block:PreviousDayPage}
+                    <a href="{PreviousDayPage}">
+                        &#171; {ShortMonth} {DayOfMonth}
+                    </a>
+                {/block:PreviousDayPage}{block:NextDayPage}
+                    <a href="{NextDayPage}">
+                        {ShortMonth} {DayOfMonth} &#187;
+                    </a>
+                {/block:NextDayPage}{/block:DayPagination}
+	    {CopyrightYears}
         </p>
     </body>
 </html>
