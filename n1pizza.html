@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
-    <style>.post{border: 1px solid black; margin: 1px;}{CustomCSS}</style>
+    <style>.post{margin: 1px;}{CustomCSS}</style>
   </head>
   <body>
     <a href="{BlogURL}"><h1>{Title}</h1></a>
@@ -12,12 +12,13 @@
     <p id="header">
       <a href="/archive">Archive</a> 
       {block:AskEnabled}<a href="/submit">{AskLabel}</a>{/block:AskEnabled} 
-      {block:SubmissionsEnabled}<a href="/ask">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+      {block:SubmissionsEnabled}<a href="/ask">{SubmitLabel}</a>{/block:SubmissionsEnabled} 
       {block:Likes}<a href="/likes">Likes</a>{/block:Likes} 
       {block:Pages}<a href="{URL}">{Label}</a> {{/block:Pages}
       <a href="{RSS}">RSS</a>
     </p>
     {block:DayPage}<h2>{DayOfMonth} {Month} {Year}</h2>{/block:DayPage}
+    <hr width="95%">
     <div id="posts">
       {block:Posts}
       <div class="post">
@@ -79,14 +80,15 @@
         </div>
         {/block:Audio}
 	<div class="postfooter">
-	  <div style="float: left;">{ReblogButton}</div><div style="float: left;">{LikeButton}</div>
-	  <a href="{Permalink}">{ShortDayOfWeek}, {DayOfMonth} {ShortMonth} {Year} {24HourWithZero}:{Minutes}:{Seconds}</a>
-	  <a href="{Permalink}">{NoteCountWithLabel}</a>
+	  <div style="float: left; margin: 1px;">{ReblogButton}</div><div style="float: left; margin: 1px;">{LikeButton}</div>
+	  <a href="{Permalink}">{ShortDayOfWeek}, {DayOfMonth} {ShortMonth} {Year} {24HourWithZero}:{Minutes}:{Seconds}</a> 
+	  <a href="{Permalink}#notes">{NoteCountWithLabel}</a> 
 	  {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
-	  {block:ContentSource}Source: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
-	  {block:RebloggedFrom}Original tumblr post by <a href="{ReblogRootURL}">{ReblogRootName}</a>, reblogged here from <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
+	  {block:ContentSource}Source: <a href="{SourceURL}">{SourceTitle}</a>.{/block:ContentSource}
+	  {block:RebloggedFrom}Original tumblr post by <a href="{ReblogRootURL}">{ReblogRootName}</a>, reblogged here via <a href="{ReblogParentURL}">{ReblogParentName}</a>.{/block:RebloggedFrom}
 	</div>
       </div>
+      <hr width="95%">
       {/block:Posts}
     </div>
     <p id="footer">
@@ -96,7 +98,7 @@
         {block:NextPage}<a href="{NextPage}">Next &gt;</a>{/block:NextPage}
       {/block:Pagination}
       {block:PermalinkPagination} 
-        {block:PreviousPost}<a href="{PreviousPost}">&lt; Previous Post</a>{/block:PreviousPost}
+        {block:PreviousPost}<a href="{PreviousPost}">&lt; Previous Post</a>{/block:PreviousPost} 
         {block:NextPost}<a href="{NextPost}">Next Post &gt;</a>{/block:NextPost} 
       {/block:PermalinkPagination}
       {block:DayPagination}
