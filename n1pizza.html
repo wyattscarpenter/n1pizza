@@ -69,7 +69,9 @@
         {/block:Chat}
 	{block:Video}
         <div class="video">
-          {Video}<!-- can't figure out the diff between this and VideoEmbed, if there is a diff -->
+          {VideoEmbed-700}<!-- must specify -700 to get youtube videos to work -->
+	  <!-- I don't think there's a diff between Video and VideoEmbed, these days,
+	  but historically VideoEmbed is what we would have wanted to use here, not Video?-->
 	  {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
         </div>
         {/block:Video}
