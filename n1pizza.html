@@ -34,6 +34,7 @@
 	{block:Photo}
         <div class="photo">
           <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+	  {block:LinkURL}<div class="clickthrough">{LinkOpenTag}{LinkURL}{LinkCloseTag}</div>{/block:LinkURL}
           {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
         </div>
         {/block:Photo}
@@ -84,7 +85,7 @@
 	<div class="postfooter">
 	  <div style="float: left; margin: 1px;">{ReblogButton}</div><div style="float: left; margin: 1px;">{LikeButton}</div>
 	  <a href="{Permalink}">{ShortDayOfWeek}, {DayOfMonth} {ShortMonth} {Year} {24HourWithZero}:{Minutes}:{Seconds}</a> 
-	  <a href="{Permalink}#notes">{NoteCountWithLabel}</a> 
+	  <a href="{PostNotesURL}">{NoteCountWithLabel}</a>
 	  {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
 	  {block:ContentSource}Source: <a href="{SourceURL}">{SourceTitle}</a>.{/block:ContentSource}
 	  {block:RebloggedFrom}Original tumblr post by <a href="{ReblogRootURL}">{ReblogRootName}</a>, reblogged here via <a href="{ReblogParentURL}">{ReblogParentName}</a>.{/block:RebloggedFrom}
