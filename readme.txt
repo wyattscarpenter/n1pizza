@@ -1,4 +1,4 @@
-This is a theme for a very specific type of tumblr power user. For this tumblr theme, I thought "web design is a curse upon the world of the living; what if I only included the bare minimum of html in order to get all the possible functionality of a tumblr blog" and the answer is you get a sick theme!
+This is a theme for a very specific type of tumblr power user. For this tumblr theme, I thought "web design is a curse upon the world of the living; what if I only included the bare minimum of html in order to get all the possible functionality of a tumblr blog" and the answer is you get a sick, minimalist, lightweight theme!
 
 Notable:
 
@@ -8,7 +8,7 @@ Notable:
 
   * I can't guarantee that these metrics are correct, but, for reference, the official tumblr theme is about 100KB (as are most themes?) and popular minimalist theme Observer is about 40KB. Tumblr's "default mobile theme" that happens when you visit a blog on a phone and the blog owner hasn't opted out of this option, seems to be 200KB, for some reason? That's weird. tumblr's /mobile option is about 20KB, but due to its lack of borders it's pretty much unusable (illegible).
 
-* has no javascript or css in it, therefore quick and efficient. I think in generating the page from the theme tumblr adds some javascript and css in... sorry, nothing I can do.
+* has no javascript or css in it, therefore quick and efficient. I think in generating the page from the theme tumblr adds some javascript and css in... sorry, not much I can do.
 
 * because of the above two and half points, this theme should be a breeze and a joy to use, and faster than most other themes. How much faster? Hard to say. I did not measure.
 
@@ -20,6 +20,6 @@ Notable:
 
 * despite tumblr's goading, I did not try to facilitate any sort of customization options into this theme. Please use the "custom css" option (which I did enable) or edit the html directly. In fact, I release this project into the public domain so that you may do with your modified copies what you wish!
 
-* tumblr insists I upload all screenshots as strictly 630x450, as though that were a screen resolution anyone uses, so I've only provided them one due to the amount of hassle. Also, the thumbnail is required to be precisely 375x250, as though that was thumbnail size. Weird.
+* tumblr insists I upload all screenshots as strictly 630x450, as though that were a screen resolution anyone uses, so I've only provided them one due to the amount of hassle. Also, the thumbnail is required to be precisely 375x250, as though that were thumbnail size. Weird.
 
 * this project is hosted on github at https://github.com/wyattscarpenter/n1pizza, but I did not link my github to tumblr because they want read/write access to all of my repos (public AND private) which is not something to give lightly.
